@@ -55,8 +55,8 @@ class Header(BaseComponent):
 # called `LineChart`
 class LineChart(MatplotlibViz):
 
-    def visualization(self, asset_id, model):
-        data = model.event_counts(asset_id)
+    def visualization(self, entity_id, model):
+        data = model.event_counts(entity_id)
         data = data.fillna(0)
         data = data.set_index('event_date')
         data = data.sort_index()
@@ -78,8 +78,8 @@ class BarChart(MatplotlibViz):
 
     predictor = load_model()
 
-    def visualization(self, asset_id, model):
-        data = model.model_data(asset_id)
+    def visualization(self, entity_id, model):
+        data = model.model_data(entity_id)
         probabilities = self.predictor.predict_proba(data)[:, 1:]
 
         if model.name == 'team':
