@@ -1,16 +1,9 @@
-import sys
-from pathlib import Path
-
 from fasthtml import FastHTML, serve
 from fasthtml.common import *
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Add the local python-package path so employee_events can be imported
-project_root = Path(__file__).resolve().parents[1]
-sys.path.append(str(project_root / 'python-package'))
-
-# Import QueryBase, Employee, Team from employee_events
+# Import QueryBase, Employee, Team from the installed employee_events package
 from employee_events import QueryBase, Employee, Team
 
 # import the load_model function from the utils.py file
