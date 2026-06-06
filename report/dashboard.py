@@ -1,19 +1,29 @@
+import sys
+from pathlib import Path
+
+# Ensure the project root and local package path are importable
+project_root = Path(__file__).resolve().parents[1]
+package_root = project_root / 'python-package'
+for path in (project_root, package_root):
+    if str(path) not in sys.path:
+        sys.path.append(str(path))
+
 from fasthtml import FastHTML, serve
 from fasthtml.common import *
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Import QueryBase, Employee, Team from the installed employee_events package
+# Import QueryBase, Employee, Team from the installed or local employee_events package
 from employee_events import QueryBase, Employee, Team
 
 # import the load_model function from the utils.py file
-from .utils import load_model
+from report.utils import load_model
 
 """
 Below, we import the parent classes
 you will use for subclassing
 """
-from .base_components import (
+from report.base_components import (
     Dropdown,
     BaseComponent,
     Radio,
@@ -21,7 +31,7 @@ from .base_components import (
     DataTable
     )
 
-from .combined_components import FormGroup, CombinedComponent
+from report.combined_components import FormGroup, CombinedComponent
 
 
 # Create a subclass of base_components/dropdown
@@ -204,4 +214,5 @@ async def update_data(r):
     
 
 
-serve()
+if __name__ == '__main__':
+    serve(appname='report.dashboard', app='app', host='127.0.0.1', port=5001, reload=False)
