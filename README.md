@@ -40,6 +40,17 @@ This repository contains starter code for the **Software Engineering for Data Sc
     └── test_employee_events.py
 ```
 
+### Environment Setup
+
+To install the required dependencies and the local package:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+The root `requirements.txt` installs the dashboard dependencies and the local `python-package` editable package.
+
 ### employee_events.db
 
 ```mermaid
