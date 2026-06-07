@@ -11,6 +11,7 @@ setup_args = dict(
     packages=find_packages(),
     package_data={'': ['employee_events.db', 'requirements.txt']},
     install_requires=requirements,
+    python_requires='>=3.10,<3.12',
     )
 
 if __name__ == "__main__":
