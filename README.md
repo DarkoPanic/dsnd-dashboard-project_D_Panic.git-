@@ -42,6 +42,8 @@ This repository contains starter code for the **Software Engineering for Data Sc
 
 ### Environment Setup
 
+**Python Version**: This project requires **Python 3.10** or higher (tested with Python 3.10.10). You can use tools like [pyenv](https://github.com/pyenv/pyenv) or [uv](https://github.com/astral-sh/uv) to manage the correct Python version automatically.
+
 To install the required dependencies and the local package:
 
 ```bash
